@@ -3,7 +3,7 @@ return {
   opts = {
     options = {
       icons_enabled = false,
-      theme = 'colorscheme',
+      theme = 'dracula-nvim',
       component_separators = '|',
       section_separators = '',
     },
