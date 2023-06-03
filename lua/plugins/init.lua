@@ -74,18 +74,6 @@ return {
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
 
-  -- Fuzzy Finder (files, lsp, etc)
-  { 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' } },
-
-  -- Fuzzy Finder Algorithm which requires local dependencies to be built
-  {
-    'nvim-telescope/telescope-fzf-native.nvim',
-    build = 'make',
-    cond = function()
-      return vim.fn.executable 'make' == 1
-    end,
-  },
-
   {
     -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
