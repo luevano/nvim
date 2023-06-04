@@ -2,6 +2,16 @@
 
 Personal [`neovim`](https://github.com/neovim/neovim) configuration using [`lazy.nvim`](https://github.com/folke/lazy.nvim) as plugin manager. With a headstarted configuration from [`kickstart.nvim`](https://github.com/nvim-lua/kickstart.nvim).
 
+## To do
+
+- [ ] tidy up the configs for all plugins again.
+- [ ] further personalize plugin configs.
+- [ ] check up on the suggested config from [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig#suggested-configuration).
+- [ ] add [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs).
+- [ ] (probably) add [ThePrimeagen/harpoon](https://github.com/ThePrimeagen/harpoon).
+    - Either take the config from [dorrajmachai/nvim](https://github.com/dorrajmachai/nvim/blob/main/lua/plugins/harpoon.lua) or from ThePrimeagen itself.
+- [ ] add [folke/trouble.nvim](https://github.com/folke/trouble.nvim).
+
 ## Plugins
 
 List of plugins installed and configured to the best of my knowledge, including dependencies. Note that the dependencies might repeat along some plugins.
