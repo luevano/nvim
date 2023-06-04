@@ -1,7 +1,5 @@
 return {
   'nvim-neo-tree/neo-tree.nvim',
-  cmd = 'Neotree',
-  version = '*',
   dependencies = {
     'nvim-lua/plenary.nvim',
     'MunifTanjim/nui.nvim',
@@ -13,7 +11,7 @@ return {
       hijack_netrw_behavior = 'open_current',
     },
   },
-  -- keys is used for Lazy-load
+  -- lazy load on <leader>nt
   keys = {
     { '<leader>nt', '<CMD>Neotree toggle<CR>', desc = 'Toggle [N]eo[t]ree' },
   },
