@@ -20,7 +20,6 @@ vim.opt.rtp:prepend(lazypath)
 -- Start plugin manager lazy.nvim, super important
 require('lazy').setup('plugins', {})
 
--- [[ Setting options ]]
 -- Set highlight on search
 vim.o.hlsearch = false
 
