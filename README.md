@@ -4,6 +4,7 @@ Personal [`neovim`](https://github.com/neovim/neovim) configuration using [`lazy
 
 ## To do
 
+- [ ] fine tune keymaps for [`treesitter.lua`](/lua/plugins/treesitter.lua).
 - [ ] tidy up the configs for all plugins again.
 - [ ] further personalize plugin configs.
 - [ ] check up on the suggested config from [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig#suggested-configuration).

@@ -19,15 +19,17 @@ return {
     highlight = { enable = true },
     indent = {
       enable = true,
-      disable = { 'python' },
+      disable = {
+        'python',
+        'css',},
     },
     incremental_selection = {
       enable = true,
       keymaps = {
-        init_selection = '<c-space>',
-        node_incremental = '<c-space>',
-        scope_incremental = '<c-s>',
-        node_decremental = '<M-space>',
+        init_selection = '<cr>',
+        node_incremental = '<tab>',
+        node_decremental = '<s-tab>',
+        scope_incremental = '<cr>',
       },
     },
     textobjects = {
@@ -35,16 +37,19 @@ return {
         enable = true,
         -- Automatically jump forward to textobj, similar to targets.vim
         lookahead = true,
+        include_surrounding_whitespace = false,
         keymaps = {
           -- You can use the capture groups defined in textobjects.scm
-          ['aa'] = '@parameter.outer',
-          ['ia'] = '@parameter.inner',
-          ['af'] = '@function.outer',
-          ['if'] = '@function.inner',
-          ['ac'] = '@class.outer',
-          ['ic'] = '@class.inner',
+          -- The descriptions are simplistic to match the native descriptions
+          ['aa'] = { query = '@parameter.outer', desc = 'a parameter' },
+          ['ia'] = { query = '@parameter.inner', desc = 'a parameter' },
+          ['af'] = { query = '@function.outer', desc = 'a function' },
+          ['if'] = { query = '@function.inner', desc = 'a function' },
+          ['ac'] = { query = '@class.outer', desc = 'a class' },
+          ['ic'] = { query = '@class.inner', desc = 'a class' },
         },
       },
+      -- TODO: change these keymaps to better ones
       move = {
         enable = true,
         -- Whether to set jumps in the jumplist
@@ -66,13 +71,14 @@ return {
           ['[]'] = '@class.outer',
         },
       },
+      -- TODO: probably change to <leader>sa (swap argument)
       swap = {
         enable = true,
         swap_next = {
-          ['<leader>a'] = '@parameter.inner',
+          ['<leader>a'] = { query = '@parameter.inner', desc = 'Swap with next parameter' },
         },
         swap_previous = {
-          ['<leader>A'] = '@parameter.inner',
+          ['<leader>A'] = { query = '@parameter.inner', desc = 'Swap with previous parameter' },
         },
       },
     },
