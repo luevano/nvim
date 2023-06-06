@@ -9,6 +9,7 @@ Personal [`neovim`](https://github.com/neovim/neovim) configuration using [`lazy
 - [ ] further personalize plugin configs.
 - [ ] check up on the suggested config from [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig#suggested-configuration).
 - [ ] add [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs).
+- [ ] (probably) add [mfussenegger/nvim-treehopper](https://github.com/mfussenegger/nvim-treehopper).
 - [ ] (probably) add [ThePrimeagen/harpoon](https://github.com/ThePrimeagen/harpoon).
     - Either take the config from [dorrajmachai/nvim](https://github.com/dorrajmachai/nvim/blob/main/lua/plugins/harpoon.lua) or from ThePrimeagen itself.
 - [ ] add [folke/trouble.nvim](https://github.com/folke/trouble.nvim).

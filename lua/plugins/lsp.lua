@@ -1,6 +1,7 @@
 local servers = {
   gopls = {},
-  jedi_language_server = {},
+  -- jedi_language_server = {},
+  pyright = {},
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
@@ -27,7 +28,9 @@ return {
 
     local lspconfig = require('lspconfig')
     local mason_lspconfig = require('mason-lspconfig')
-    mason_lspconfig.ensure_installed = vim.tbl_keys(servers)
+    mason_lspconfig.setup({
+      ensure_installed = vim.tbl_keys(servers)
+    })
 
     local on_attach = function(_, bufnr)
       local nmap = function(keys, func, desc)
@@ -65,7 +68,7 @@ return {
       end, { desc = 'Format current buffer with LSP' })
     end
 
-    mason_lspconfig.setup_handlers {
+    mason_lspconfig.setup_handlers({
       function(server_name)
         lspconfig[server_name].setup {
           capabilities = capabilities,
@@ -73,6 +76,6 @@ return {
           settings = servers[server_name],
         }
       end,
-    }
+    })
   end,
 }
