@@ -4,12 +4,23 @@ return {
     'nvim-treesitter/nvim-treesitter-textobjects',
   },
   build = ':TSUpdate',
+  -- This needs to be manually pased into config and used in the function(_, opts)
+  -- as it has to be configured with the required...'.config'
   opts = {
-    ensure_installed = { 'go', 'lua', 'python', 'typescript', 'vimdoc', 'vim' },
+    ensure_installed = {
+      'go',
+      'lua',
+      'python',
+      'typescript',
+      'vimdoc',
+      'vim',
+    },
     auto_install = false,
-
     highlight = { enable = true },
-    indent = { enable = true, disable = { 'python' } },
+    indent = {
+      enable = true,
+      disable = { 'python' },
+    },
     incremental_selection = {
       enable = true,
       keymaps = {
@@ -65,5 +76,8 @@ return {
         },
       },
     },
-  }
+  },
+  config = function(_, opts)
+    require('nvim-treesitter.configs').setup(opts)
+  end,
 }
