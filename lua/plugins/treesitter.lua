@@ -8,12 +8,19 @@ return {
   -- as it has to be configured with the required...'.config'
   opts = {
     ensure_installed = {
+      'bash',
+      'ini',
       'go',
       'lua',
       'python',
       'typescript',
       'vimdoc',
       'vim',
+      'css',
+      'html',
+      'markdown',
+      'markdown_inline',
+      'php'
     },
     auto_install = false,
     highlight = { enable = true },
