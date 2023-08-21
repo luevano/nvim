@@ -32,6 +32,12 @@ vim.o.completeopt = 'menuone,noselect'
 
 vim.o.termguicolors = true
 
+-- Code folding, depends on treesitter
+vim.foldmethod='expr'
+vim.opt.foldexpr='nvim_treesitter#foldexpr()'
+-- Disable folding at startup.
+vim.nofoldenable=true
+
 -- Highlight on yank
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {

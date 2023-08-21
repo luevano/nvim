@@ -5,7 +5,7 @@ return {
   },
   opts = {
     options = {
-      theme = 'dracula',
+      theme = 'nord',
       icons_enabled = true,
       component_separators = { left = '', right = '' },
       section_separators = { left = '', right = '' },

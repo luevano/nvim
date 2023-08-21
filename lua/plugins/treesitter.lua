@@ -20,7 +20,8 @@ return {
       'html',
       'markdown',
       'markdown_inline',
-      'php'
+      'php',
+      'sql'
     },
     auto_install = false,
     highlight = { enable = true },
