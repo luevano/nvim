@@ -38,6 +38,21 @@ vim.opt.foldexpr='nvim_treesitter#foldexpr()'
 -- Disable folding at startup.
 vim.nofoldenable=true
 
+-- 4 spaces for tab indentation
+-- not needed, using https://EditorConfig.org instead for 'tpope/vim-sleuth'
+-- vim.api.nvim_create_autocmd({'FileType', 'BufEnter', 'BufNewFile', 'BufRead'}, {
+--   pattern = { '*.py' },
+--   callback = function()
+--     vim.cmd[[filetype plugin indent on]]
+--     -- show existing tab with 4 spaces width
+--     vim.tabstop=4
+--     -- when indenting with '>', use 4 spaces width
+--     vim.shiftwidth=4
+--     -- on pressing tab, insert 4 spaces
+--     vim.expandtab=true
+--   end
+-- })
+
 -- Highlight on yank
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
