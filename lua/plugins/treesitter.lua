@@ -21,7 +21,9 @@ return {
       'markdown',
       'markdown_inline',
       'php',
-      'sql'
+      'sql',
+      'gdscript',
+      'godot_resource'
     },
     auto_install = false,
     highlight = { enable = true },

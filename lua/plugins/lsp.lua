@@ -7,7 +7,7 @@ local servers = {
       workspace = { checkThirdParty = false },
       telemetry = { enable = false },
     },
-  },
+  }
 }
 
 return {
@@ -77,5 +77,8 @@ return {
         }
       end,
     })
+
+    -- At the end, add GDscript support, which is only supported by lspconfig itself
+    lspconfig.gdscript.setup({capabilities = capabilities})
   end,
 }
