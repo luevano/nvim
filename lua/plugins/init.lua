@@ -9,4 +9,6 @@ return {
   { 'folke/which-key.nvim', opts = {} },
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
+  -- required for nvim-qt on windows
+  { 'equalsraf/neovim-gui-shim' },
 }
