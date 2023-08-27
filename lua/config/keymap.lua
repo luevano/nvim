@@ -20,3 +20,11 @@ vim.keymap.set('n', '<C-left>', '<CMD>vertical resize -5<CR>', { desc = 'Split: 
 vim.keymap.set('n', '<C-down>', '<CMD>resize +5<CR>', { desc = 'Split: Resize down', noremap = true })
 vim.keymap.set('n', '<C-up>', '<CMD>resize -5<CR>', { desc = 'Split: Resize up', noremap = true })
 vim.keymap.set('n', '<C-right>', '<CMD>vertical resize +5<CR>', { desc = 'Split: Resize right', noremap = true })
+
+-- Tab navigation
+vim.keymap.set('n', '<leader>tn', '<CMD>tabnew<CR>', { desc = '[T]ab: [n]ew' })
+vim.keymap.set('n', '<leader>te', '<CMD>tabedit<Space>', { desc = '[T]ab: [e]dit'})
+vim.keymap.set('n', '<leader>td', '<CMD>tabclose<CR>', { desc = '[T]ab: [d]elete'})
+vim.keymap.set('n', '<leader>tl', '<CMD>tabnext<CR>', { desc = 'Tab: next'})
+vim.keymap.set('n', '<leader>th', '<CMD>tabprev<CR>', { desc = 'Tab: prev'})
+
