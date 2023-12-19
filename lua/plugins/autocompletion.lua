@@ -9,7 +9,9 @@ return {
     'hrsh7th/cmp-nvim-lua',
     -- Snippet Engine & its associated nvim-cmp source
     { 'L3MON4D3/LuaSnip',
+      version = "v2.*",
       dependencies = 'rafamadriz/friendly-snippets',
+      build = "make install_jsregexp",
     },
     'saadparwaiz1/cmp_luasnip',
   },
