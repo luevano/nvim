@@ -1,5 +1,7 @@
 local servers = {
-  gopls = {},
+  gopls = {
+    gofumpt = true
+  },
   -- jedi_language_server = {},
   pyright = {},
   lua_ls = {
