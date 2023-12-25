@@ -20,7 +20,7 @@ return {
     'nvim-telescope/telescope.nvim',
     { 'williamboman/mason.nvim', config = true },
     'williamboman/mason-lspconfig.nvim',
-    { 'j-hui/fidget.nvim', tag = "legacy", opts = {} },
+    { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
     { 'folke/neodev.nvim', opts = {} },
   },
   config = function()
@@ -34,7 +34,29 @@ return {
       ensure_installed = vim.tbl_keys(servers)
     })
 
-    local on_attach = function(_, bufnr)
+    local on_attach = function(_, bufnr) -- _ is client
+      -- Create a command `:Format` local to the LSP buffer
+      vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
+        -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
+        -- on later neovim version, you should use vim.lsp.buf.format({ async = false }) instead
+        vim.lsp.buf.format()
+      end, { desc = 'Format current buffer with LSP' })
+
+      -- autoformatting on save from: https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Formatting-on-save
+      -- pretty sure this will autoformat any code
+      -- temporarily disabled as using the keymap is better so far, else a lot of unnecessary changes will be made to random files (such as thesenvim configs)
+      -- local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
+      -- if client.supports_method('textDocument/formatting') then
+      --   vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+      --   vim.api.nvim_create_autocmd('BufWritePre', {
+      --     group = augroup,
+      --     buffer = bufnr,
+      --     callback = function()
+      --       vim.cmd('Format')
+      --     end,
+      --   })
+      -- end
+
       local nmap = function(keys, func, desc)
         if desc then
           desc = 'LSP: ' .. desc
@@ -42,6 +64,7 @@ return {
         vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
       end
 
+      nmap('<leader>f', '<CMD>Format<CR>', '[F]ormat')
       nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
       nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
@@ -63,11 +86,6 @@ return {
       nmap('<leader>wl', function()
         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
       end, '[W]orkspace [L]ist Folders')
-
-      -- Create a command `:Format` local to the LSP buffer
-      vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-        vim.lsp.buf.format()
-      end, { desc = 'Format current buffer with LSP' })
     end
 
     mason_lspconfig.setup_handlers({
