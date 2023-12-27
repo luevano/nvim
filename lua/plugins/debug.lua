@@ -4,12 +4,11 @@ return {
     'rcarriga/nvim-dap-ui',
     'williamboman/mason.nvim',
     'jay-babu/mason-nvim-dap.nvim',
-    -- Add your own debuggers here
     'leoluz/nvim-dap-go',
   },
   config = function()
-    local dap = require 'dap'
-    local dapui = require 'dapui'
+    local dap = require('dap')
+    local dapui = require('dapui')
 
     require('mason-nvim-dap').setup {
       automatic_setup = true,
@@ -18,16 +17,21 @@ return {
         'delve',
       },
     }
-    vim.keymap.set('n', '<F5>', dap.continue)
-    vim.keymap.set('n', '<F1>', dap.step_into)
-    vim.keymap.set('n', '<F2>', dap.step_over)
-    vim.keymap.set('n', '<F3>', dap.step_out)
-    vim.keymap.set('n', '<leader>b', dap.toggle_breakpoint)
-    vim.keymap.set('n', '<leader>B', function()
-      dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
-    end)
 
-    dapui.setup {
+    local nmap = function(keys, func, desc)
+      if desc then
+        desc = 'DAP: ' .. desc
+      end
+      vim.keymap.set('n', keys, func, { desc = desc })
+    end
+    nmap('<F5>', dap.continue)
+    nmap('<F1>', dap.step_into)
+    nmap('<F2>', dap.step_over)
+    nmap('<F3>', dap.step_out)
+    nmap("<leader>du", dapui.toggle, "Toggle [u]i")
+    nmap('<leader>db', dap.toggle_breakpoint, "Toggle [b]reakpoint")
+
+    dapui.setup({
       icons = { expanded = '▾', collapsed = '▸', current_frame = '*' },
       controls = {
         icons = {
@@ -42,13 +46,12 @@ return {
           disconnect = "⏏",
         },
       },
-    }
-    vim.keymap.set("n", "<F7>", dapui.toggle)
+    })
 
     dap.listeners.after.event_initialized['dapui_config'] = dapui.open
     dap.listeners.before.event_terminated['dapui_config'] = dapui.close
     dap.listeners.before.event_exited['dapui_config'] = dapui.close
 
-    require('dap-go').setup()
+    require('dap-go').setup({})
   end,
 }
