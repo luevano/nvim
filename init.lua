@@ -16,6 +16,10 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Start plugin manager lazy.nvim, super important
-require('lazy').setup('plugins', {})
+require('lazy').setup('plugins', {
+  change_detection = {
+    notify = false,
+  },
+})
 
 require('config.keymap')

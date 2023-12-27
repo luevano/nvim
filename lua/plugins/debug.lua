@@ -28,8 +28,8 @@ return {
     nmap('<F1>', dap.step_into)
     nmap('<F2>', dap.step_over)
     nmap('<F3>', dap.step_out)
-    nmap("<leader>du", dapui.toggle, "Toggle [u]i")
-    nmap('<leader>db', dap.toggle_breakpoint, "Toggle [b]reakpoint")
+    nmap('<leader>du', dapui.toggle, 'Toggle [u]i')
+    nmap('<leader>db', dap.toggle_breakpoint, 'Toggle [b]reakpoint')
 
     dapui.setup({
       icons = { expanded = '▾', collapsed = '▸', current_frame = '*' },
@@ -43,7 +43,7 @@ return {
           step_back = 'b',
           run_last = '▶▶',
           terminate = '⏹',
-          disconnect = "⏏",
+          disconnect = '⏏',
         },
       },
     })
