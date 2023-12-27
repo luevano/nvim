@@ -23,7 +23,8 @@ vim.keymap.set('n', '<C-right>', '<CMD>vertical resize +5<CR>', { desc = 'Split:
 
 -- Tab navigation
 vim.keymap.set('n', '<leader>tn', '<CMD>tabnew<CR>', { desc = '[T]ab: [n]ew' })
-vim.keymap.set('n', '<leader>te', '<CMD>tabedit<Space>', { desc = '[T]ab: [e]dit'})
+-- TODO: need to decide how to handle <CMD> vs :
+vim.keymap.set('n', '<leader>te', ':tabedit<Space>', { desc = '[T]ab: [e]dit'})
 vim.keymap.set('n', '<leader>td', '<CMD>tabclose<CR>', { desc = '[T]ab: [d]elete'})
 vim.keymap.set('n', '<leader>tl', '<CMD>tabnext<CR>', { desc = 'Tab: next'})
 vim.keymap.set('n', '<leader>th', '<CMD>tabprev<CR>', { desc = 'Tab: prev'})
