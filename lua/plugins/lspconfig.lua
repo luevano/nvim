@@ -1,9 +1,18 @@
 local servers = {
-  gopls = {
-    gofumpt = true
+  gopls = { -- just the key for the gopls config
+    gopls = { -- settings parameter in lspconfig.setup requires a this table with another "gopls" name
+      completeUnimported = true,
+      usePlaceholders = true,
+      analyses = {
+        unusedparams = true,
+        shadow = true,
+      },
+      gofumpt = true
+    },
   },
   -- jedi_language_server = {},
   pyright = {},
+  -- probably will need fixing by checking https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#lua_ls
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
@@ -18,21 +27,19 @@ return {
     'hrsh7th/cmp-nvim-lsp',
     -- Required for the keybinds
     'nvim-telescope/telescope.nvim',
-    { 'williamboman/mason.nvim', config = true },
+    'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
     { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
     { 'folke/neodev.nvim', opts = {} },
   },
   config = function()
+    local lspconfig = require('lspconfig')
+    local mason = require('mason')
+    local mason_lspconfig = require('mason-lspconfig')
+
     -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-
-    local lspconfig = require('lspconfig')
-    local mason_lspconfig = require('mason-lspconfig')
-    mason_lspconfig.setup({
-      ensure_installed = vim.tbl_keys(servers)
-    })
 
     local on_attach = function(_, bufnr) -- _ is client
       -- Create a command `:Format` local to the LSP buffer
@@ -88,14 +95,18 @@ return {
       end, '[W]orkspace [L]ist Folders')
     end
 
-    mason_lspconfig.setup_handlers({
-      function(server_name)
-        lspconfig[server_name].setup {
-          capabilities = capabilities,
-          on_attach = on_attach,
-          settings = servers[server_name],
-        }
-      end,
+    mason.setup({})
+    mason_lspconfig.setup({
+      ensure_installed = vim.tbl_keys(servers),
+      handlers = {
+        function(server_name)
+          lspconfig[server_name].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+            settings = servers[server_name],
+          })
+        end,
+      }
     })
 
     -- At the end, add GDscript support, which is only supported by lspconfig itself
