@@ -12,11 +12,17 @@ local servers = {
   },
   -- jedi_language_server = {},
   pyright = {},
-  -- probably will need fixing by checking https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#lua_ls
   lua_ls = {
     Lua = {
-      workspace = { checkThirdParty = false },
       telemetry = { enable = false },
+      workspace = {
+        checkThirdParty = false,
+        library = {
+          vim.env.VIMRUNTIME,
+          -- need to check if there is a better directory
+          os.getenv('HOME') .. '/.local/lib/lua',
+        }
+      },
     },
   }
 }
