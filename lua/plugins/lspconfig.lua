@@ -78,6 +78,7 @@ return {
       end
 
       nmap('<leader>f', '<CMD>Format<CR>', '[F]ormat')
+      nmap('<leader>R', '<CMD>LspRestart<CR>', '[R]estart (lsp)')
       nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
       nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 

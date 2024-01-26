@@ -23,7 +23,7 @@ return {
       'php',
       'sql',
       'gdscript',
-      'godot_resource'
+      'godot_resource',
     },
     auto_install = false,
     highlight = { enable = true },
@@ -31,7 +31,7 @@ return {
       enable = true,
       disable = {
         'python',
-        'css',},
+        'css', },
     },
     incremental_selection = {
       enable = true,
