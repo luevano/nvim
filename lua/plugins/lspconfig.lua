@@ -10,6 +10,11 @@ local servers = {
       gofumpt = true
     },
   },
+  rust_analyzer = {
+    cargo = {
+      allFeatures = true,
+    },
+  },
   -- jedi_language_server = {},
   pyright = {},
   lua_ls = {

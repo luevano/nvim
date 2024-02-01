@@ -24,6 +24,7 @@ return {
       'sql',
       'gdscript',
       'godot_resource',
+      'rust',
     },
     auto_install = false,
     highlight = { enable = true },
