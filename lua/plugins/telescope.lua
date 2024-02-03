@@ -35,12 +35,13 @@ return {
         previewer = false,
       })
     end, { desc = '[/] Fuzzily search in current buffer' })
-    vim.keymap.set('n', '<leader>gf', ts_builtin.git_files, { desc = 'Search [G]it [F]iles' })
-    vim.keymap.set('n', '<leader>sf', ts_builtin.find_files, { desc = '[S]earch [F]iles' })
-    vim.keymap.set('n', '<leader>sh', ts_builtin.help_tags, { desc = '[S]earch [H]elp' })
-    vim.keymap.set('n', '<leader>sw', ts_builtin.grep_string, { desc = '[S]earch current [W]ord' })
-    vim.keymap.set('n', '<leader>sg', ts_builtin.live_grep, { desc = '[S]earch by [G]rep' })
-    vim.keymap.set('n', '<leader>sd', ts_builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
-    vim.keymap.set('n', '<leader>sr', ts_builtin.lsp_references, { desc = '[S]earch [R]eferences' })
+    vim.keymap.set('n', '<leader>gf', ts_builtin.git_files, { desc = '[g]it: search [f]iles' })
+
+    vim.keymap.set('n', '<leader>sf', ts_builtin.find_files, { desc = '[s]earch [f]iles' })
+    vim.keymap.set('n', '<leader>sh', ts_builtin.help_tags, { desc = '[s]earch [h]elp' })
+    vim.keymap.set('n', '<leader>sw', ts_builtin.grep_string, { desc = '[s]earch current [w]ord' })
+    vim.keymap.set('n', '<leader>sg', ts_builtin.live_grep, { desc = '[s]earch by [g]rep' })
+    vim.keymap.set('n', '<leader>sd', ts_builtin.diagnostics, { desc = '[s]earch [d]iagnostics' })
+    vim.keymap.set('n', '<leader>sr', ts_builtin.lsp_references, { desc = '[s]earch [r]eferences' })
   end,
 }
