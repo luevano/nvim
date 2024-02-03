@@ -14,7 +14,7 @@ return {
     -- impl
     -- gotests
     -- iferr
-    -- I just installed them with mason, it would be easier to install 
+    -- I just installed them with mason, it would be easier to install
     -- them here with mason, but my config is already a mess
 
     require('gopher').setup(opts)

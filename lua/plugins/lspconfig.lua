@@ -1,5 +1,5 @@
 local servers = {
-  gopls = { -- just the key for the gopls config
+  gopls = {   -- just the key for the gopls config
     gopls = { -- settings parameter in lspconfig.setup requires a this table with another "gopls" name
       completeUnimported = true,
       usePlaceholders = true,
@@ -122,6 +122,6 @@ return {
     })
 
     -- At the end, add GDscript support, which is only supported by lspconfig itself
-    lspconfig.gdscript.setup({capabilities = capabilities})
+    lspconfig.gdscript.setup({ capabilities = capabilities })
   end,
 }

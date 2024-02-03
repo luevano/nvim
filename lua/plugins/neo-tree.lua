@@ -88,8 +88,8 @@ return {
       },
       git_status = {
         symbols = {
-          renamed   = "󰁕",
-          unstaged  = "󰄱",
+          renamed  = "󰁕",
+          unstaged = "󰄱",
         },
       },
     },
@@ -185,17 +185,18 @@ return {
       client_filters = "first",
       renderers = {
         root = {
-          {"indent"},
-          {"icon", default="C" },
-          {"name", zindex = 10},
+          { "indent" },
+          { "icon",  default = "C" },
+          { "name",  zindex = 10 },
         },
         symbol = {
-          {"indent", with_expanders = true},
-          {"kind_icon", default="?" },
-          {"container",
+          { "indent",    with_expanders = true },
+          { "kind_icon", default = "?" },
+          {
+            "container",
             content = {
-              {"name", zindex = 10},
-              {"kind_name", zindex = 20, align = "right"},
+              { "name",      zindex = 10 },
+              { "kind_name", zindex = 20, align = "right" },
             }
           }
         },
@@ -281,7 +282,7 @@ return {
       tabs_max_width = nil,
       padding = 0,
       -- Default separators, wanted to use powerline icons, but the coloring is all wrong
-      separator = { left = "▏", right= "▕" },
+      separator = { left = "▏", right = "▕" },
       separator_active = nil,
       show_separator_on_edge = false,
       highlight_tab = "NeoTreeTabInactive",
