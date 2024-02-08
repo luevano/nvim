@@ -2,6 +2,7 @@ return {
   'nvim-lualine/lualine.nvim',
   dependencies = {
     { 'nvim-tree/nvim-web-devicons', opt = {} },
+    'rmagatti/auto-session',
   },
   opts = {
     options = {
@@ -12,7 +13,7 @@ return {
     },
     sections = {
       lualine_a = { 'mode' },
-      lualine_b = { 'branch', 'diff', 'diagnostics' },
+      lualine_b = { require('auto-session.lib').current_session_name, 'branch', 'diff', 'diagnostics' },
       lualine_c = { 'filename' },
       lualine_x = { 'encoding', 'fileformat', 'filetype' },
       lualine_y = { 'progress' },
