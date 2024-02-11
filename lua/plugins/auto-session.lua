@@ -11,6 +11,8 @@ return {
       function()
         -- dirty way of handling neotree not being loaded yet (lazy load on <leader>nt)
         local _ = pcall(vim.cmd, 'Neotree close')
+        -- same thing for trouble
+        local _ = pcall(vim.cmd, 'TroubleClose')
       end,
     },
   },
