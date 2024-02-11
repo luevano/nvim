@@ -82,14 +82,13 @@ return {
           ['[]'] = '@class.outer',
         },
       },
-      -- TODO: probably change to <leader>sa (swap argument)
       swap = {
         enable = true,
         swap_next = {
-          ['<leader>a'] = { query = '@parameter.inner', desc = 'Swap with next parameter' },
+          ['<leader>a'] = { query = '@parameter.inner', desc = 'Swap with next [a]rgument' },
         },
         swap_previous = {
-          ['<leader>A'] = { query = '@parameter.inner', desc = 'Swap with previous parameter' },
+          ['<leader>A'] = { query = '@parameter.inner', desc = 'Swap with previous [A]rgument' },
         },
       },
     },

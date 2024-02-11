@@ -292,6 +292,7 @@ return {
       highlight_separator_active = "NeoTreeTabSeparatorActive",
     },
   },
+  -- lazy load on <leader>nt
   keys = {
     { '<leader>nt', '<CMD>Neotree toggle<CR>', desc = 'Toggle [N]eo[t]ree' },
   },

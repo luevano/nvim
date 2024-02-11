@@ -30,6 +30,6 @@ return {
   config = function(_, opts)
     require('colorizer').setup(opts)
 
-    vim.keymap.set('n', '<leader>ct', '<CMD>ColorizerToggle<CR>', { desc = '[C]olorizer [T]oggle' })
+    vim.keymap.set('n', '<leader>ct', '<CMD>ColorizerToggle<CR>', { desc = '[c]olorizer [t]oggle' })
   end
 }

@@ -122,6 +122,11 @@ return {
     })
 
     -- At the end, add GDscript support, which is only supported by lspconfig itself
-    lspconfig.gdscript.setup({ capabilities = capabilities })
+    lspconfig.gdscript.setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      -- Need a better setup, this is for wsl -> win setup, but the ip will change dynamically
+      -- cmd = { 'nc', '172.30.112.1', '6005' },
+    })
   end,
 }
