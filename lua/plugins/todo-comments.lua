@@ -60,5 +60,12 @@ return {
       pattern = [[\b(KEYWORDS):]], -- ripgrep regex
       -- pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
     },
-  }
+  },
+  config = function(_, opts)
+    local todo = require('todo-comments')
+    todo.setup(opts)
+
+    -- TodoTrouble is also available
+    vim.keymap.set('n', '<leader>tt', '<CMD>TodoTelescope<CR>', { desc = '[t]odo: [t]oggle (list)' })
+  end
 }
