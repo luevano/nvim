@@ -47,3 +47,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
+
+-- Clang
+vim.g.c_syntax_for_h = true

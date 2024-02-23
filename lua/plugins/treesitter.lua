@@ -8,6 +8,7 @@ return {
   -- as it has to be configured with the required...'.config'
   opts = {
     ensure_installed = {
+      'c',
       'bash',
       'ini',
       'go',
