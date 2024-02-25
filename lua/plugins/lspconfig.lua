@@ -1,3 +1,15 @@
+local function get_lua_lib()
+  if vim.loop.os_uname().sysname == 'Linux' then
+    return {
+      vim.env.VIMRUNTIME,
+      os.getenv('HOME') .. '/.local/lib/lua',
+    }
+  end
+  return {
+    vim.env.VIMRUNTIME,
+  }
+end
+
 local servers = {
   clangd = {},
   gopls = {   -- just the key for the gopls config
@@ -30,11 +42,7 @@ local servers = {
       telemetry = { enable = false },
       workspace = {
         checkThirdParty = false,
-        library = {
-          vim.env.VIMRUNTIME,
-          -- need to check if there is a better directory
-          os.getenv('HOME') .. '/.local/lib/lua',
-        }
+        library = get_lua_lib(),
       },
     },
   },
