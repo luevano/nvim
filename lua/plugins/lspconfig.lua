@@ -16,6 +16,14 @@ local servers = {
       allFeatures = true,
     },
   },
+  ruff_lsp = {
+    init_options = {
+      settings = {
+        -- Any extra CLI arguments for `ruff` go here.
+        args = {},
+      }
+    }
+  },
   pyright = {},
   lua_ls = {
     Lua = {
@@ -43,8 +51,7 @@ return {
         'gopls',
         'rust-analyzer',
         'mypy',
-        'ruff',
-        'autopep8',
+        'ruff-lsp',
         'pyright',
         'lua-language-server',
       },
@@ -142,10 +149,22 @@ return {
         })
       end
 
-      setup_server('clangd')
+      -- setup_server('clangd')
+      lspconfig['clangd'].setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+        settings = servers['clangd'],
+        cmd = {
+          'clangd',
+          -- fixes: multiple different client offset_encodings detected
+          '--offset-encoding=utf-16',
+        },
+      })
+
       setup_server('gopls')
       setup_server('rust_analyzer')
       setup_server('pyright')
+      setup_server('ruff_lsp')
       setup_server('lua_ls')
       -- change the gdscript cmd for wsl -> win support, need to set:
       -- cmd = { 'nc', '172.30.112.1', '6005' }, but the ip changes dynamically
