@@ -174,8 +174,7 @@ return {
       setup_server('pyright')
       setup_server('ruff_lsp')
       setup_server('lua_ls')
-      -- change the gdscript cmd for wsl -> win support, need to set:
-      -- cmd = { 'nc', '172.30.112.1', '6005' }, but the ip changes dynamically
+      -- assumes localhost is mirrored (networkingMode=mirrored in .wslconfig)
       setup_server('gdscript')
     end,
   },
