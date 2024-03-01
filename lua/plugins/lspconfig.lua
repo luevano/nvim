@@ -10,6 +10,14 @@ local function get_lua_lib()
   }
 end
 
+local function get_gdscript_cmd()
+  local port = os.getenv('GDScript_Port') or '6005'
+  if vim.loop.os_uname().sysname == 'Linux' then
+    return { 'nc', 'localhost', port }
+  end
+  return { 'ncat', 'localhost', port }
+end
+
 local servers = {
   clangd = {},
   gopls = {   -- just the key for the gopls config
@@ -175,7 +183,13 @@ return {
       setup_server('ruff_lsp')
       setup_server('lua_ls')
       -- assumes localhost is mirrored (networkingMode=mirrored in .wslconfig)
-      setup_server('gdscript')
+      -- setup_server('gdscript')
+      lspconfig['gdscript'].setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+        settings = servers['gdscript'],
+        cmd = get_gdscript_cmd(),
+      })
     end,
   },
 }
