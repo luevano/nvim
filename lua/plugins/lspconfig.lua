@@ -70,6 +70,7 @@ return {
         'ruff-lsp',
         'pyright',
         'lua-language-server',
+        -- 'gdtoolkit', -- install manually (at least for windows)
       },
     },
     config = function(_, opts)

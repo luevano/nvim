@@ -9,6 +9,9 @@ return {
     null_ls.setup({
       sources = {
         null_ls.builtins.formatting.clang_format,
+        -- gdtoolkit needs to be installed manually (at least in windows, for now)
+        null_ls.builtins.formatting.gdformat,
+        null_ls.builtins.diagnostics.gdlint,
         -- should use ruff-lsp
         -- null_ls.builtins.formatting.autopep8,
         -- null_ls.builtins.diagnostics.ruff,
