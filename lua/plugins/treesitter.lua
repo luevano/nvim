@@ -33,6 +33,7 @@ return {
     indent = {
       enable = true,
       disable = {
+        'cpp',
         'python',
         'css', },
     },
