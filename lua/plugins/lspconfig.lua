@@ -169,7 +169,15 @@ return {
       -- setup_server('clangd')
       lspconfig['clangd'].setup({
         capabilities = capabilities,
-        on_attach = on_attach,
+        on_attach = function(client, bufnr)
+          -- Really only required if NvChad is used:
+          -- https://www.youtube.com/watch?v=lsFoZIg-oDs
+          client.server_capabilities.signatureHelpProvider = false
+          -- Fixes syntax highlighting:
+          -- https://www.reddit.com/r/neovim/comments/16hgnjv/comment/k0dx9x8/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
+          client.server_capabilities.semanticTokensProvider = nil
+          on_attach(client, bufnr)
+        end,
         settings = servers['clangd'],
         cmd = {
           'clangd',
