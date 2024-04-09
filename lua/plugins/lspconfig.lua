@@ -44,7 +44,18 @@ local servers = {
       }
     }
   },
-  pyright = {},
+  pyright = {
+    pyright = {
+      -- Using Ruff's import organizer
+      disableOrganizeImports = true,
+    },
+    python = {
+      analysis = {
+        -- Ignore all files for analysis to exclusively use Ruff for linting
+        ignore = { '*' },
+      },
+    },
+  },
   lua_ls = {
     Lua = {
       telemetry = { enable = false },
@@ -104,7 +115,11 @@ return {
       capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
       -- TODO: change keybinds to the autocmd suggested by the lspconfig github
-      local on_attach = function(_, bufnr) -- _ is client
+      local on_attach = function(client, bufnr)
+        if client.name == 'ruff_lsp' then
+          -- Disable hover in favor of Pyright
+          client.server_capabilities.hoverProvider = false
+        end
         -- Create a command `:Format` local to the LSP buffer
         vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
           vim.lsp.buf.format({ async = false })
