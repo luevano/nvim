@@ -5,6 +5,7 @@ return {
     'nvim-neotest/nvim-nio', --dep of nvim-dap-ui
     'williamboman/mason.nvim',
     'jay-babu/mason-nvim-dap.nvim',
+    'nvim-neotest/nvim-nio',
     'leoluz/nvim-dap-go',
   },
   config = function()
