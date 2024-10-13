@@ -104,7 +104,7 @@ return {
       'hrsh7th/cmp-nvim-lsp',
       -- Required for the keybinds
       'nvim-telescope/telescope.nvim',
-      { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
+      { 'j-hui/fidget.nvim', tag = 'v1.4.5', opts = { notification = { window = { winblend = 0 } } } },
       { 'folke/neodev.nvim', opts = {} },
     },
     config = function()
