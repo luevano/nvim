@@ -43,5 +43,6 @@ return {
     vim.keymap.set('n', '<leader>sg', ts_builtin.live_grep, { desc = '[s]earch by [g]rep' })
     vim.keymap.set('n', '<leader>sd', ts_builtin.diagnostics, { desc = '[s]earch [d]iagnostics' })
     vim.keymap.set('n', '<leader>sr', ts_builtin.lsp_references, { desc = '[s]earch [r]eferences' })
+    vim.keymap.set('n', '<leader>si', ts_builtin.lsp_implementations, { desc = '[s]earch [i]mplementations' })
   end,
 }

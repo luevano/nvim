@@ -18,7 +18,8 @@ return {
     -- them here with mason, but my config is already a mess
 
     require('gopher').setup(opts)
-    require('gopher.dap').setup()
+    -- deprecated, setup `nvim-dap` manually or use https://github.com/leoluz/nvim-dap-go
+    -- require('gopher.dap').setup()
 
     local nmap = function(keys, func, desc)
       if desc then
