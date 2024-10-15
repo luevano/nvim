@@ -66,6 +66,7 @@ local servers = {
     },
   },
   gdscript = {},
+  bashls = {},
 }
 
 return {
@@ -81,6 +82,9 @@ return {
         'ruff-lsp',
         'pyright',
         'lua-language-server',
+        'shfmt',
+        'bash-language-server'
+        -- 'shellcheck', -- install manually on system
         -- 'gdtoolkit', -- install manually (at least for windows)
       },
     },
@@ -206,6 +210,7 @@ return {
       setup_server('pyright')
       setup_server('ruff_lsp')
       setup_server('lua_ls')
+      setup_server('bashls')
       -- assumes localhost is mirrored (networkingMode=mirrored in .wslconfig)
       -- setup_server('gdscript')
       lspconfig['gdscript'].setup({

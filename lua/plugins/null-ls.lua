@@ -21,6 +21,8 @@ return {
             return { "--python-executable", virtual .. "/bin/python" }
           end,
         }),
+        -- bash/sell
+        null_ls.builtins.formatting.shfmt,
       },
     })
   end
