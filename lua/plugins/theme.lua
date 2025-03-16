@@ -11,6 +11,7 @@ return {
         borders = true,
         errors = { mode = 'bg' },
         search = { theme = 'vim' },
+
         styles = {
           -- Style to be applied to different syntax groups
           -- Value is any valid attr-list value for `:help nvim_set_hl`
@@ -18,12 +19,22 @@ return {
           keywords = {},
           functions = {},
           variables = {},
+          errors = {},
+
           -- To customize lualine/bufferline
           bufferline = {
             current = {},
             modified = { italic = true },
           },
         },
+
+        -- Definitions from the old nord theme I was using:
+        -- https://github.com/shaunsingh/nord.nvim/blob/master/lua/nord/theme.lua
+        on_highlights = function(hl, c)
+          -- Treesitter: https://github.com/gbprod/nord.nvim/blob/main/lua/nord/treesitter.lua
+          -- old theme was in yellow, changed the default to purple to match better the newer theme
+          hl["@constant"] = { fg = c.aurora.purple }
+        end,
       })
 
       vim.cmd.colorscheme('nord')

@@ -36,7 +36,7 @@ local servers = {
       allFeatures = true,
     },
   },
-  ruff_lsp = {
+  ruff = {
     init_options = {
       settings = {
         -- Any extra CLI arguments for `ruff` go here.
@@ -79,7 +79,7 @@ return {
         'gopls',
         'rust-analyzer',
         'mypy',
-        'ruff-lsp',
+        'ruff',
         'pyright',
         'lua-language-server',
         'shfmt',
@@ -120,7 +120,7 @@ return {
 
       -- TODO: change keybinds to the autocmd suggested by the lspconfig github
       local on_attach = function(client, bufnr)
-        if client.name == 'ruff_lsp' then
+        if client.name == 'ruff' then
           -- Disable hover in favor of Pyright
           client.server_capabilities.hoverProvider = false
         end
@@ -208,7 +208,7 @@ return {
       setup_server('gopls')
       setup_server('rust_analyzer')
       setup_server('pyright')
-      setup_server('ruff_lsp')
+      setup_server('ruff')
       setup_server('lua_ls')
       setup_server('bashls')
       -- assumes localhost is mirrored (networkingMode=mirrored in .wslconfig)
