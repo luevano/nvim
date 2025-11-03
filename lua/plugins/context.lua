@@ -20,7 +20,6 @@ return {
   config = function(_, opts)
     require('treesitter-context').setup(opts)
 
-    -- TODO: change keybind?
-    vim.keymap.set('n', '<leader>cx', '<CMD>TSContextToggle<CR>', { desc = '[C]onte[x]t Toggle' })
+    vim.keymap.set('n', '<leader>cx', '<CMD>TSContext toggle<CR>', { desc = '[C]onte[x]t Toggle' })
   end,
 }

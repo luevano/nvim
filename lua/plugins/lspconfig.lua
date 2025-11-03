@@ -112,7 +112,7 @@ return {
       { 'folke/neodev.nvim', opts = {} },
     },
     config = function()
-      local lspconfig = require('lspconfig')
+      local lspconfig = vim.lsp.config
 
       -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
       local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -178,7 +178,7 @@ return {
 
       -- generic server setup
       local function setup_server(server_name)
-        lspconfig[server_name].setup({
+        lspconfig(server_name, {
           capabilities = capabilities,
           on_attach = on_attach,
           settings = servers[server_name],
@@ -186,7 +186,7 @@ return {
       end
 
       -- setup_server('clangd')
-      lspconfig['clangd'].setup({
+      lspconfig('clangd', {
         capabilities = capabilities,
         on_attach = function(client, bufnr)
           -- Really only required if NvChad is used:
@@ -213,7 +213,7 @@ return {
       setup_server('bashls')
       -- assumes localhost is mirrored (networkingMode=mirrored in .wslconfig)
       -- setup_server('gdscript')
-      lspconfig['gdscript'].setup({
+      lspconfig('gdscript', {
         capabilities = capabilities,
         on_attach = on_attach,
         settings = servers['gdscript'],

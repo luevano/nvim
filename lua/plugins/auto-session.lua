@@ -39,11 +39,10 @@ return {
   config = function(_, opts)
     local ass = require('auto-session')
     ass.setup(opts)
-    local sl = require('auto-session.session-lens')
 
     vim.keymap.set('n', '<leader>asr', ass.RestoreSession, { desc = '[a]uto [s]ession: [r]estore' })
     vim.keymap.set('n', '<leader>ass', ass.SaveSession, { desc = '[a]uto [s]ession: [s]ave' })
     vim.keymap.set('n', '<leader>asd', ass.DeleteSession, { desc = '[a]uto [s]ession: [d]elete' })
-    vim.keymap.set('n', '<leader>asl', sl.search_session, { desc = '[a]uto [s]ession: [l]list' })
+    vim.keymap.set('n', '<leader>asl', '<CMD>Telescope session-lens<CR>', { desc = '[a]uto [s]ession: [l]list' })
   end
 }
