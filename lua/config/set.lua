@@ -3,6 +3,12 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- Prefer Unix line endings, but also recognize DOS (CRLF) when reading
+vim.opt.fileformats = { "unix", "dos" }
+
+-- Default to Unix (LF) when creating new files
+vim.opt.fileformat = "unix"
+
 vim.o.hlsearch = true
 
 vim.wo.number = true
