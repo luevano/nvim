@@ -42,13 +42,13 @@ vim.o.termguicolors = true
 vim.foldmethod='expr'
 vim.opt.foldexpr='nvim_treesitter#foldexpr()'
 -- Disable folding at startup.
-vim.nofoldenable=true
+vim.o.foldenable = false
 
 -- Highlight on yank
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
-    vim.highlight.on_yank()
+    vim.hl.on_yank()
   end,
   group = highlight_group,
   pattern = '*',

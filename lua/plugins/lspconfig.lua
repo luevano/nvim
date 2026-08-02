@@ -1,5 +1,5 @@
 local function get_lua_lib()
-  if vim.loop.os_uname().sysname == 'Linux' then
+  if vim.uv.os_uname().sysname == 'Linux' then
     return {
       vim.env.VIMRUNTIME,
       os.getenv('HOME') .. '/.local/lib/lua',
@@ -12,7 +12,7 @@ end
 
 local function get_gdscript_cmd()
   local port = os.getenv('GDScript_Port') or '6005'
-  if vim.loop.os_uname().sysname == 'Linux' then
+  if vim.uv.os_uname().sysname == 'Linux' then
     return { 'nc', 'localhost', port }
   end
   return { 'ncat', 'localhost', port }
@@ -109,7 +109,7 @@ return {
       -- Required for the keybinds
       'nvim-telescope/telescope.nvim',
       { 'j-hui/fidget.nvim', tag = 'v1.4.5', opts = { notification = { window = { winblend = 0 } } } },
-      { 'folke/neodev.nvim', opts = {} },
+      { 'folke/lazydev.nvim', ft = 'lua', opts = {} },
     },
     config = function()
       -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
