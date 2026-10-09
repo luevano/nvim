@@ -83,7 +83,8 @@ return {
         'pyright',
         'lua-language-server',
         'shfmt',
-        'bash-language-server'
+        'bash-language-server',
+        'tree-sitter-cli',
         -- 'shellcheck', -- install manually on system
         -- 'gdtoolkit', -- install manually (at least for windows)
       },
